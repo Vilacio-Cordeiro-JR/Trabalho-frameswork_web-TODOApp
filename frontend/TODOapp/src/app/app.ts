@@ -16,13 +16,17 @@ export class App {
 
   constructor(private http: HttpClient) {
     // Detectar URL da API baseado no ambiente
-    const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const isDevelopment = typeof window !== 'undefined' && 
+      (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
     
     if (isDevelopment) {
       this.apiURL = 'http://localhost:3000';
-    } else {
+    } else if (typeof window !== 'undefined') {
       // Em produção, usar a mesma origem (Vercel)
       this.apiURL = `${window.location.protocol}//${window.location.host}`;
+    } else {
+      // SSR - usar uma URL padrão que será sobrescrita no browser
+      this.apiURL = '/api';
     }
     
     this.READ_tarefas();
