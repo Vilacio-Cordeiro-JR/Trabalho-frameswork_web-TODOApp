@@ -7,5 +7,13 @@
     "install:all": "npm install && cd frontend/TODOapp && npm install && cd ../../",
     "build:all": "cd frontend/TODOapp && npm run build",
     "start": "cd frontend/TODOapp && npm run serve:ssr:TODOapp"
+  },
+  "dependencies": {
+    "@vercel/node": "^3.0.0",
+    "mongoose": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
   }
 }
