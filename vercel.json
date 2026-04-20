@@ -1,9 +1,6 @@
 {
   "buildCommand": "cd frontend/TODOapp && npm install && npm run build",
   "outputDirectory": "frontend/TODOapp/dist/TODOapp/browser",
-  "env": {
-    "MONGO_URI": "@mongo_uri"
-  },
   "functions": {
     "api/**/*.ts": {
       "runtime": "nodejs20.x",
